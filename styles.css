@@ -1,0 +1,315 @@
+/* Importación de fuentes de alta legibilidad y estatus visual */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+    --bg-base: #faf8f5;         /* Fondo Crema Seda: neutraliza la fatiga ocular */
+    --text-dark: #162e20;       /* Verde Bosque: transmite estabilidad, madurez y competencia */
+    --text-muted: #425447;      /* Verde Salvia para textos secundarios */
+    --accent-gold: #c5a059;     /* Oro Atenuado: dirige la atención a zonas críticas */
+    --accent-lily: #e2798f;     /* Tono botánico lili */
+    --glass-card: rgba(255, 255, 255, 0.88);
+    --border-subtle: rgba(22, 46, 32, 0.08);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--bg-base);
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(226, 121, 143, 0.03) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(197, 160, 89, 0.05) 0px, transparent 50%);
+    color: var(--text-dark);
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+/* Envoltura del Currículum */
+.cv-wrapper {
+    max-width: 950px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* ENCABEZADO: Consolidación de Identidad Visual */
+.cv-header {
+    background: var(--glass-card);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border-subtle);
+    border-bottom: none;
+    border-radius: 24px 24px 0 0;
+    padding: 40px 45px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    box-shadow: 0 10px 30px rgba(22, 46, 32, 0.03);
+}
+
+.photo-container {
+    width: 120px;
+    height: 120px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    border: 2px dashed var(--accent-gold);
+    background: rgba(255, 255, 255, 0.8);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.photo-container:hover {
+    border-style: solid;
+    background: rgba(197, 160, 89, 0.05);
+}
+
+.photo-placeholder {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    text-align: center;
+    padding: 10px;
+}
+
+.photo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 18px;
+}
+
+.header-text h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 2.3rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: var(--text-dark);
+    line-height: 1.1;
+}
+
+.job-title {
+    font-size: 0.95rem;
+    color: var(--accent-gold);
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 6px;
+}
+
+/* CUERPO PRINCIPAL DEL CV */
+.cv-container {
+    background: var(--glass-card);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border-subtle);
+    border-radius: 0 0 24px 24px;
+    box-shadow: 0 20px 40px rgba(22, 46, 32, 0.04);
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    overflow: hidden;
+}
+
+/* Columna Lateral Izquierda */
+.sidebar {
+    background: rgba(22, 46, 32, 0.01);
+    border-right: 1px solid var(--border-subtle);
+    padding: 40px 35px;
+}
+
+.sidebar-section {
+    margin-bottom: 35px;
+}
+
+.sidebar-title {
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+    color: var(--accent-gold);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+    padding-bottom: 4px;
+}
+
+.sidebar-list {
+    list-style: none;
+}
+
+.sidebar-list li {
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.sidebar-list li::before {
+    content: '✦';
+    color: var(--accent-gold);
+    font-size: 0.65rem;
+    margin-top: 2px;
+}
+
+/* Columna de Contenido Derecha */
+.main-content {
+    padding: 40px 45px;
+}
+
+.section-main {
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(15px);
+    transition: all 0.6s cubic-bezier(0.215, 0.610, 0.355, 1);
+}
+
+.section-main.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section-main h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.15rem;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.section-main h2::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(22, 46, 32, 0.06);
+}
+
+p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+    text-align: justify;
+}
+
+.edu-item {
+    margin-bottom: 14px;
+}
+
+.edu-item h3 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.edu-item span {
+    font-size: 0.85rem;
+    color: var(--accent-gold);
+    font-weight: 500;
+}
+
+.skills-subtitle {
+    font-size: 0.8rem;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 14px;
+}
+
+.skill-badge {
+    background: rgba(22, 46, 32, 0.03);
+    border: 1px solid rgba(22, 46, 32, 0.04);
+    padding: 5px 12px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    transition: all 0.3s ease;
+}
+
+.skill-badge:hover {
+    background: var(--text-dark);
+    color: #fff;
+    transform: translateY(-1.5px);
+}
+
+.solar-note {
+    font-style: italic;
+    font-size: 0.8rem;
+    border-left: 2px solid var(--accent-gold);
+    padding-left: 10px;
+    margin-top: 5px;
+}
+
+/* WIDGET INTERACTIVO FIJO (Lili Oriental) */
+#lily-widget {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    width: 110px;
+    height: 110px;
+    z-index: 100;
+    pointer-events: none;
+    filter: drop-shadow(0 8px 16px rgba(22, 46, 32, 0.08));
+}
+
+.lily-petal {
+    fill: url(#lily-grad);
+    transform-origin: 50px 75px;
+    transition: transform 0.1s linear;
+    opacity: 0.95;
+}
+
+.lily-petal-back {
+    fill: url(#lily-grad-dark);
+    transform-origin: 50px 75px;
+    transition: transform 0.1s linear;
+}
+
+.center-pistil {
+    stroke: #9ebb96;
+    stroke-linecap: round;
+    fill: none;
+    transform-origin: 50px 75px;
+    transition: transform 0.15s ease-out;
+}
+
+/* Responsividad para móviles y pantallas reducidas */
+@media (max-width: 768px) {
+    .cv-header {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 20px;
+    }
+    .cv-container {
+        grid-template-columns: 1fr;
+    }
+    .sidebar {
+        border-right: none;
+        border-bottom: 1px solid var(--border-subtle);
+        padding: 30px 20px;
+    }
+    .main-content {
+        padding: 30px 20px;
+    }
+    #lily-widget {
+        width: 75px;
+        height: 75px;
+        bottom: 20px;
+        right: 20px;
+    }
+}
